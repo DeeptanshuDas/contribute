@@ -12,7 +12,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
 	"github.com/carolynvs/magex/pkg"
 	"github.com/carolynvs/magex/shx"
 )
@@ -63,7 +62,7 @@ func triggerNetlifyDeployment() error {
 	data := strings.NewReader(emptyMsg)
 	fmt.Println("POST", webhook)
 	fmt.Println(emptyMsg)
-
+}
 	r, err := http.Post(webhook, "application/json", data)
 	if err != nil {
 		return err
@@ -81,7 +80,7 @@ func triggerNetlifyDeployment() error {
 // DeployPreview builds the entire website for a preview.
 func DeployPreview() error {
 	pwd, _ := os.Getwd()
-	websiteDir := filepath.Join(filepath.Dir(pwd), "tag-contributor-strategy")
+	websiteDir := filepath.Join(filepath.Dir(pwd), "tag-contributor-strategy")}
 
 	if _, err := os.Stat(websiteDir); os.IsNotExist(err) {
 		err := shx.RunV("git", "clone", "-b", prodBranch, "--recurse-submodules", "https://github.com/cncf/tag-contributor-strategy.git", websiteDir)
